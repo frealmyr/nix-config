@@ -3,23 +3,23 @@
   homebrew = {
     brewPrefix = "/opt/homebrew/bin";
     enable = true;
-    caskArgs.no_quarantine = true;
+    # caskArgs.no_quarantine = true;
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+      cleanup = "zap";
+    };
     global = {
       brewfile = true;
       # lockfiles = true;
     };
     casks = [ 
-      "raycast"
       "firefox"
-      "spotify"
-      "slack"
       "visual-studio-code"
-      "zoom"
-      "brave-browser"
-      "intellij-idea"
       "font-sf-mono-nerd-font"
       "obs"
-      "telegram"
+      "signal"
+      "steam"
     ];
     taps = [
       "homebrew/core"

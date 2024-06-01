@@ -4,48 +4,72 @@
     config = {
       layout = "bsp";
       window_placement = "second_child";
-
-      # padding set to 6px
-      top_padding = 6;
-      bottom_padding = 6;
-      left_padding = 6;
-      right_padding = 6;
-      window_gap = 6;
-
-      mouse_follows_focus = "on";
-      mouse_modifier = "alt";
-      mouse_action1 = "move";
-      mouser_action2 = "resize";
-      mouse_drop_action = "swap";
-
-      window_topmost = "off";
-      window_opacity = "off";
-      window_border = "off";
-      window_border_width = 1;
-      active_window_border_color = "0xff775759";
-      normal_window_border_color = "0xff555555";
-      insert_window_border_color = "0xffd75f5f";
       split_ratio = 0.5;
       auto_balance = "off";
 
-      external_bar = "all:32:0";
+      top_padding = 0;
+      bottom_padding = 0;
+      left_padding = 0;
+      right_padding = 0;
+      window_gap = 2;
+
+      mouse_follows_focus = "off";
+      focus_follows_mouse = "off";
+      mouse_modifier = "alt";
+      mouse_action1 = "move";
+      mouser_action2 = "resize";
+      # mouse_drop_action = "swap"; # TODO: Check what this does
+    
     };
     extraConfig = ''
-      # rules for specific apps
-      yabai -m rule --add app="^System Settings$" manage=off
-      yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
-      yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
-      yabai -m rule --add label="macfeh" app="^macfeh$" manage=off
-      yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
-      yabai -m rule --add label="App Store" app="^App Store$" manage=off
-      yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
-      yabai -m rule --add label="KeePassXC" app="^KeePassXC$" manage=off
-      yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
-      yabai -m rule --add label="Dictionary" app="^Dictionary$" manage=off
-      yabai -m rule --add label="mpv" app="^mpv$" manage=off
-      yabai -m rule --add label="Software Update" title="Software Update" manage=off
-      yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
-      yabai -m rule --add label="HHKB" app="HHKB Keymap Tool" title="About This Mac" manage=off
+      ######################
+      ## Floating Windows ##
+      ######################
+
+      ## System
+      yabai -m rule --add app='^System Information$' manage=off
+      yabai -m rule --add app='^System Settings$' manage=off
+      yabai -m rule --add title='Preferences$' manage=off
+      yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
+
+      ## Tools
+      yabai -m rule --add app='^Messages$' manage=off
+      yabai -m rule --add app='^Cisco AnyConnect Secure Mobility Client$' manage=off
+      yabai -m rule --add app='^Stats$' manage=off
+
+      ## Coding
+      yabai -m rule --add app='IntelliJ IDEA' title='^$' manage=off
+      yabai -m rule --add app='IntelliJ IDEA' title='Project Structure' manage=off
+      yabai -m rule --add app='IntelliJ IDEA' title='Preferences' manage=off
+      yabai -m rule --add app='IntelliJ IDEA' title='Edit configuration' manage=off
+
+      ## Office
+      yabai -m rule --add app='^Microsoft Teams$' manage=off
+      yabai -m rule --add app='^Calculator$' manage=off
+      yabai -m rule --add app='^Calendar$' manage=off
+
+      ## Music
+      # yabai -m rule --add app='^Music$' manage=off
+
+      ###################
+      ## Event Exports ##
+      ###################
+
+      ## Workspace indicator tray
+      yabai -m signal --add event=mission_control_exit action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
+      yabai -m signal --add event=display_added action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
+      yabai -m signal --add event=display_removed action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
+      yabai -m signal --add event=window_created action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+      yabai -m signal --add event=window_destroyed action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+      yabai -m signal --add event=window_focused action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+      yabai -m signal --add event=window_moved action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+      yabai -m signal --add event=window_resized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+      yabai -m signal --add event=window_minimized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+      yabai -m signal --add event=window_deminimized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+
+      ## Refocus after closing
+      yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+      yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
     '';
   };
 }

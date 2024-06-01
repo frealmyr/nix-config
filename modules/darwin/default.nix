@@ -8,9 +8,9 @@
 
   imports = [
     ./settings/system.nix
-    # ./settings/environment.nix
-    # ./settings/yabai.nix
-    # ./settings/skhd.nix
+    ./settings/environment.nix
+    ./settings/yabai.nix
+    ./settings/skhd.nix
     # ./settings/spacebar.nix
   ];
 }
