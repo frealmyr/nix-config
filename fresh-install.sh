@@ -15,6 +15,8 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 mkdir -p Repositories/frealmyr
 git clone https://github.com/frealmyr/nix-config.git
 cd nix-config
+
+
 nix run nix-darwin -- switch --flake .
 darwin-rebuild switch --flake .
 
