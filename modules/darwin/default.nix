@@ -18,10 +18,12 @@
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
+  nixpkgs.config.allowUnfree = true;
 
   imports = [
-    ./settings/system.nix
+    # ./settings/system.nix
     ./settings/environment.nix
+    ./settings/pkgs.nix
   ];
 
   # Used for backwards compatibility, please read the changelog before changing.

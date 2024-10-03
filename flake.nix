@@ -10,12 +10,14 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, darwin, ... }: {
+  outputs = inputs@{ self, nixpkgs, darwin }: {
     darwinConfigurations.FM-WORK = darwin.lib.darwinSystem {
       modules = [
-        ./modules/darwin
-        # ./hosts/FM-WORK
+        ({ pkgs, ...}: import ./modules/darwin { inherit self inputs pkgs; })
+        ({ pkgs, ...}: import ./hosts/FM-WORK { inherit self inputs pkgs; })
       ];
     };
+    # Expose the package set, including overlays, for convenience.
+    darwinPackages = self.darwinConfigurations.FM-WORK.pkgs;
   };
 }

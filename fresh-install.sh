@@ -16,7 +16,6 @@ mkdir -p Repositories/frealmyr
 git clone https://github.com/frealmyr/nix-config.git
 cd nix-config
 
-
-nix run nix-darwin -- switch --flake .
+# Do the nix things
+nix run nix-darwin --extra-experimental-features 'nix-command flakes' -- switch --flake .
 darwin-rebuild switch --flake .
-
