@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+_TODO:_ Figure out the exact steps next time i re-install MacOS.
+SSL_CERT_FILE=/opt/nix-and-zscaler.crt nix run nix-darwin --extra-experimental-features 'nix-command flakes' -- switch --flake .
+
 # Brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/fredrick/.zprofile

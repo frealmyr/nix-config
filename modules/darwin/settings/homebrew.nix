@@ -1,8 +1,7 @@
-# Not using anymore
-{ pkgs, ... }: {
+{ ... }: {
   homebrew = {
-    brewPrefix = "/opt/homebrew/bin";
     enable = true;
+    brewPrefix = "/opt/homebrew/bin";
     # caskArgs.no_quarantine = true;
     onActivation = {
       autoUpdate = true;
@@ -13,27 +12,30 @@
       brewfile = true;
       # lockfiles = true;
     };
-    casks = [ 
+    casks = [
+      "betterdisplay"
       "firefox"
+      "kitty"
       "visual-studio-code"
-      "font-sf-mono-nerd-font"
-      "obs"
-      "signal"
-      "steam"
     ];
     taps = [
-      "homebrew/core"
-      "homebrew/cask"
-      "homebrew/cask-fonts"
-      "d12frosted/emacs-plus"
-      # "xorpse/formulae"
-      "cmacrae/formulae"
+      "cormacrelf/tap" # provides: dark-notify
+      "homebrew/services"
+      "zackelia/formulae" # provides: bclm
     ];
-    # brews = [ "trippy" ];
-
-    extraConfig = ''
-      brew "d12frosted/emacs-plus/emacs-plus@28", args: ["with-elrumo2-icon", "with-native-comp", "with-xwidgets", "without-imagemagick"]
-      brew "cmacrae/formulae/spacebar"
-    '';
+    brews = [
+      # {
+      #   name = "bclm"; # https://github.com/zackelia/bclm/issues/49
+      # }
+      {
+        name = "dark-notify";
+      }
+      {
+        name = "sleepwatcher";
+        start_service = true;
+      }
+    ];
   };
+
+  system.stateVersion = 4;
 }
