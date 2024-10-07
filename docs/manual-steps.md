@@ -4,4 +4,4 @@ Nix-darwin goes a long way, but Apple being Apple, means that some configuration
 
   - Grant terminal full disk access
   - Remove all shortcuts under Keyboard shortcuts in settings.
-  - 
+  -

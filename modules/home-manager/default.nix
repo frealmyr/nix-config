@@ -1,8 +1,10 @@
 { pkgs, ... }: {
   # specify my home-manager configs
   imports = [
-    # ./settings/zsh.nix
+    ./settings/zsh.nix
     ./settings/wezterm.nix
+    ./settings/fonts.nix
+    # ./settings/starship.nix
     # ./settings/tmux.nix
 #    ./settings/neovim.nix
   ];
@@ -13,6 +15,11 @@
       CLICLOLOR = 1;
       EDITOR = "nvim";
     };
+
+    file.".inputrc".source = ./settings/inputrc;
+
+    # Don't change this when you change package input. Leave it alone.
+    stateVersion = "24.05"; # 23.11
   };
 
   programs = {
@@ -34,17 +41,4 @@
     eza.enable = true;
     git.enable = true;
   };
-
-  home.file.".inputrc".source = ./settings/inputrc;
-
-  # Fonts
-  # $HOME/Library/Fonts/HomeManager/*
-  home.packages = with pkgs;
-  [ 
-    (nerdfonts.override { fonts = [ "FiraMono" ]; })
-  ];
-  fonts.fontconfig.enable = true; # Required for wezterms to use font pkgs
-
-  # Don't change this when you change package input. Leave it alone.
-  home.stateVersion = "24.05"; # 23.11
 }

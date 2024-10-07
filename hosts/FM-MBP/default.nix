@@ -33,7 +33,7 @@
       brewfile = true;
       # lockfiles = true;
     };
-    casks = [ 
+    casks = [
       "background-music"
       "discord"
       "moonlight"

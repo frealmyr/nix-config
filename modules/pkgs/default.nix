@@ -1,5 +1,4 @@
 { pkgs, ... }: {
-  # Allow unfree packages
   nix.package = pkgs.nix;
   nixpkgs.config.allowUnfree = true;
 
@@ -31,7 +30,6 @@
     yabai
     yq
     zsh
-    (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; })
   ];
 
   # Used for backwards compatibility, please read the changelog before changing.

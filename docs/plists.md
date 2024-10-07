@@ -1,13 +1,13 @@
 To find currently set plist entries:
 
 ```
-❯ defaults read com.apple.CoreGraphics                               
+❯ defaults read com.apple.CoreGraphics
 {
     DisplayUseForcedGray = 0;
     DisplayUseInvertedPolarity = 0;
 }
 
-defaults read com.apple.universalaccess                               
+defaults read com.apple.universalaccess
 {
     closeViewHotkeysEnabled = 0;
     closeViewZoomDisplayID = 0;

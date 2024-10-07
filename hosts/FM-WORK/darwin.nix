@@ -25,7 +25,7 @@
     ];
 
   homebrew = {
-    casks = [ 
+    casks = [
       "discord"
       "obsidian"
       "ollama"

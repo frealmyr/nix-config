@@ -19,12 +19,12 @@
   #     remapCapsLockToControl = true;
   #   };
 
-  #   defaults = {  
+  #   defaults = {
   #     NSGlobalDomain = {
   #       "com.apple.sound.beep.feedback" = 0;
   #       "com.apple.sound.beep.volume" = 0.0;
   #       AppleKeyboardUIMode = 3; # Enables keyboard control on macos prompts/windows
-        
+
   #       AppleInterfaceStyle = null;
   #       AppleInterfaceStyleSwitchesAutomatically = true;
   #       ApplePressAndHoldEnabled = false;
@@ -43,7 +43,7 @@
   #       NSAutomaticPeriodSubstitutionEnabled = false;
   #       NSAutomaticQuoteSubstitutionEnabled = false;
   #       NSAutomaticSpellingCorrectionEnabled = false;
-  
+
   #       NSNavPanelExpandedStateForSaveMode = true;
   #       NSNavPanelExpandedStateForSaveMode2 = true;
   #     };

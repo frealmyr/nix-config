@@ -15,6 +15,23 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, darwin }: {
+    darwinConfigurations.FM-MBP = darwin.lib.darwinSystem {
+      modules = [
+        ({ pkgs, ...}: import ./modules/darwin { inherit self inputs pkgs; })
+        home-manager.darwinModules.home-manager {
+          home-manager = {
+            users.fredrick.imports = [
+              ./modules/home-manager
+              ./hosts/FM-MBP/home-manager.nix
+            ];
+          };
+        }
+        ({ pkgs, ...}: import ./modules/pkgs { inherit self inputs pkgs; })
+        ({ pkgs, ...}: import ./hosts/FM-MBP/darwin.nix { inherit self inputs pkgs; })
+      ];
+    };
+  };
+
     darwinConfigurations.FM-WORK = darwin.lib.darwinSystem {
       modules = [
         ({ pkgs, ...}: import ./modules/darwin { inherit self inputs pkgs; })
