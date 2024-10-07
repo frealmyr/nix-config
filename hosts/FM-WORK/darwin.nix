@@ -27,10 +27,10 @@
   homebrew = {
     casks = [
       "discord"
+      "netnewswire"
       "obsidian"
       "ollama"
       "slack"
-      # "launchcontrol"
     ];
   };
 

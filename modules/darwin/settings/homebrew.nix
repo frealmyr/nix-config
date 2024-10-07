@@ -19,7 +19,6 @@
       "visual-studio-code"
     ];
     taps = [
-      "cormacrelf/tap" # provides: dark-notify
       "homebrew/services"
       "zackelia/formulae" # provides: bclm
     ];
@@ -27,9 +26,6 @@
       # {
       #   name = "bclm"; # https://github.com/zackelia/bclm/issues/49
       # }
-      {
-        name = "dark-notify";
-      }
       {
         name = "sleepwatcher";
         start_service = true;

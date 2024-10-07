@@ -49,7 +49,7 @@
       nixup = "pushd ~/SCM/Github/frealmyr/nix-config; nix flake update; nixswitch; popd";
       bat = "bat --theme=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo Coldark-Dark || echo Coldark-Cold) --color='always'";
       ls = "ls --color=auto";
-      ll = "ls -lahrts";
+      ll = "ls -lah";
       l = "ls -l";
       vi = "nvim";
       python = "python3";

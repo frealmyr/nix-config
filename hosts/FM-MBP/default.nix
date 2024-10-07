@@ -1,10 +1,10 @@
 { pkgs, ... }: {
 
-  # ZScaler Fuckery
-  nix.settings.ssl-cert-file = "/opt/nix-and-zscaler.crt";
-  security.pki.certificates = [
-    "/opt/nix-and-zscaler.crt"
-  ];
+  # Implicit used by home-manager, else will default to /var/empty
+  users.users.fredrick.home = "/Users/fredrick/";
+
+    # The platform the configuration will be used on.
+  nixpkgs.hostPlatform = "aarch64-darwin";
 
   environment.systemPackages = with pkgs; [
       colima
@@ -21,18 +21,6 @@
     ];
 
   homebrew = {
-    brewPrefix = "/opt/homebrew/bin";
-    enable = true;
-    # caskArgs.no_quarantine = true;
-    onActivation = {
-      autoUpdate = true;
-      upgrade = true;
-      cleanup = "zap";
-    };
-    global = {
-      brewfile = true;
-      # lockfiles = true;
-    };
     casks = [
       "background-music"
       "discord"
@@ -42,16 +30,8 @@
       "prusaslicer"
       "steam"
       "tailscale"
-      # "launchcontrol"
     ];
-    taps = [
-      "cormacrelf/tap" # provides: dark-notify
-      "zackelia/formulae" # provides: bclm
-    ];
-    # brews = [ "trippy" ];
-
   };
-}
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog

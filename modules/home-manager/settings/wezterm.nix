@@ -39,10 +39,10 @@
           },
         },
         window_padding = {
-          left = 10,
-          right = 10,
-          top = 10,
-          bottom = 10,
+          left = 20,
+          right = 20,
+          top = 20,
+          bottom = 20,
         },
         front_end = "WebGpu",
         webgpu_power_preference = "LowPower"

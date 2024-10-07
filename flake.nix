@@ -30,7 +30,6 @@
         ({ pkgs, ...}: import ./hosts/FM-MBP/darwin.nix { inherit self inputs pkgs; })
       ];
     };
-  };
 
     darwinConfigurations.FM-WORK = darwin.lib.darwinSystem {
       modules = [
