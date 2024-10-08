@@ -69,7 +69,7 @@
       ## Environment ##
       #################
 
-      export DIRENV_LOG_FORMAT="" # Silence direnv activation stdout
+      export DIRENV_LOG_FORMAT=$'\033[2mdirenv: %s\033[0m'
       export EDITOR=vi
       export LC_ALL=en_US.UTF-8
       export LANG=en_US.UTF-8

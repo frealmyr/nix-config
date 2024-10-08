@@ -1,12 +1,17 @@
 { pkgs, ... }: {
-  # specify my home-manager configs
   imports = [
-    ./settings/zsh.nix
-    ./settings/wezterm.nix
+    ./settings/bat.nix
+    # ./settings/firefox.nix
     ./settings/fonts.nix
-    # ./settings/starship.nix
+    ./settings/fzf.nix
+    # ./settings/gh.nix
+    # ./settings/git.nix
+    # ./settings/gpg.nix
+    # ./settings/neovim.nix
     # ./settings/tmux.nix
-#    ./settings/neovim.nix
+    # ./settings/vscode.nix
+    ./settings/wezterm.nix
+    ./settings/zsh.nix
   ];
 
   home = {
@@ -20,25 +25,5 @@
 
     # Don't change this when you change package input. Leave it alone.
     stateVersion = "24.05"; # 23.11
-  };
-
-  programs = {
-    starship = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-
-    bat = {
-      enable = true;
-      config.theme = "TwoDark";
-    };
-
-    fzf = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-
-    eza.enable = true;
-    git.enable = true;
   };
 }
