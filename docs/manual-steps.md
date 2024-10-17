@@ -7,4 +7,3 @@ Nix-darwin goes a long way, but Apple being Apple, means that some configuration
   - Import GPG key.
   - Create SCM folders.
     - Add .direnv files
-      - Add GPG signing key for Git.

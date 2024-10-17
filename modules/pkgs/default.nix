@@ -6,6 +6,7 @@
     bat
     coreutils
     curl
+    devbox
     direnv
     ed
     findutils

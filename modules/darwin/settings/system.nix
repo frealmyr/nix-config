@@ -34,7 +34,7 @@
   #       "com.apple.keyboard.fnState" = true; # Use FN mode for top row of built-in keyboard
 
   #       InitialKeyRepeat = 15;
-  #       KeyRepeat = 3;
+  #       KeyRepeat = 2;
 
   #       NSAutomaticWindowAnimationsEnabled = false; # Disable open/close animations for windows/popovers
 

@@ -6,6 +6,5 @@
     enable = true;
     pinentryPackage = pkgs.pinentry_mac;
     enableSshSupport = true;
-    enableZshIntegration = true;
   };
 }

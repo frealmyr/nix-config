@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+
   programs.nixvim = {
     enable = true;
 
@@ -64,7 +65,7 @@
           ];
           lualine_y = ["diff" "branch"];
         };
-     };
+      };
     };
 
     keymaps = [

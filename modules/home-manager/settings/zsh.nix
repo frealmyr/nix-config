@@ -26,7 +26,6 @@
       enable = true;
       # theme = "powerlevel10k";
       plugins = [
-        "direnv"
         "docker"
         "extract"
         "git"

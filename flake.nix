@@ -33,7 +33,7 @@
 
     darwinConfigurations.FM-WORK = darwin.lib.darwinSystem {
       modules = [
-        ({ pkgs, ...}: import ./modules/darwin { inherit self inputs pkgs; })
+        ({ pkgs, ... }: import ./modules/darwin { inherit self inputs pkgs; })
         home-manager.darwinModules.home-manager {
           home-manager = {
             users.fredrick.imports = [
@@ -42,8 +42,8 @@
             ];
           };
         }
-        ({ pkgs, ...}: import ./modules/pkgs { inherit self inputs pkgs; })
-        ({ pkgs, ...}: import ./hosts/FM-WORK/darwin.nix { inherit self inputs pkgs; })
+        ({ pkgs, ... }: import ./modules/pkgs { inherit self inputs pkgs; })
+        ({ pkgs, ... }: import ./hosts/FM-WORK/darwin.nix { inherit self inputs pkgs; })
       ];
     };
   };
