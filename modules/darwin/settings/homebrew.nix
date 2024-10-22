@@ -2,7 +2,6 @@
   homebrew = {
     enable = true;
     brewPrefix = "/opt/homebrew/bin";
-    # caskArgs.no_quarantine = true;
     onActivation = {
       autoUpdate = true;
       upgrade = true;
@@ -10,7 +9,6 @@
     };
     global = {
       brewfile = true;
-      # lockfiles = true;
     };
     casks = [
       "betterdisplay"
@@ -32,6 +30,4 @@
       }
     ];
   };
-
-  system.stateVersion = 4;
 }

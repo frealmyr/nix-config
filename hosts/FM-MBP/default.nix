@@ -1,10 +1,10 @@
 { pkgs, ... }: {
 
-  # Implicit used by home-manager, else will default to /var/empty
-  users.users.fredrick.home = "/Users/fredrick/";
-
-    # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
+
+  environment.shellAliases = {
+    nixswitch = "SSL_CERT_FILE=/opt/nix-and-zscaler.crt darwin-rebuild switch --flake ~/SCM/Personal/nix-config";
+  };
 
   environment.systemPackages = with pkgs; [
       colima

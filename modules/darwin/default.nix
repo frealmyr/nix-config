@@ -9,14 +9,20 @@
   # Set Git commit hash for darwin-version.
   system.configurationRevision = self.rev or self.dirtyRev or null;
 
-  # hardware-specific stuff
+  # Hardware-specific stuff
   security.pam.enableSudoTouchIdAuth = true;
 
   imports = [
+    ./settings/direnv.nix
     ./settings/environment.nix
+    ./settings/fonts.nix
+    ./settings/gnupg.nix
     ./settings/homebrew.nix
-    ./settings/services.nix
+    ./settings/ollama.nix
+    ./settings/pkgs.nix
     ./settings/system.nix
+    ./settings/yabai.nix
+    ./settings/zsh.nix
   ];
 
   # Used for backwards compatibility, please read the changelog before changing.

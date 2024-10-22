@@ -1,35 +1,37 @@
 { self, pkgs, ... }: {
 
-  # Implicit used by home-manager, else will default to /var/empty
-  users.users.fredrick.home = "/Users/fredrick/";
-
-    # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
 
-  # ZScaler Fuckery
+  ## ZScaler Fuckery
   nix.settings.ssl-cert-file = "/opt/nix-and-zscaler.crt";
   security.pki.certificates = [
     "/opt/nix-and-zscaler.crt"
   ];
+  environment.extraInit = ''
+    export SSL_CERT_FILE=/opt/nix-and-zscaler.crt
+  '';
+  environment.shellAliases = {
+    nixswitch = "SSL_CERT_FILE=/opt/nix-and-zscaler.crt darwin-rebuild switch --flake ~/SCM/Personal/nix-config";
+  };
 
   environment.systemPackages = with pkgs; [
-      colima
-      cowsay
-      docker
-      fortune
-      kind
-      lima
-      neofetch
-      neovim
-      pinentry_mac
-    ];
+    colima
+    cowsay
+    docker
+    fortune
+    kind
+    lima
+    neofetch
+    neovim
+    pinentry_mac
+  ];
 
   homebrew = {
     casks = [
       "discord"
       "netnewswire"
       "obsidian"
-      "ollama"
+      "ollama" # Ollama menubar indicator
       "slack"
     ];
   };
