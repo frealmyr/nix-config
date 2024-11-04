@@ -1,4 +1,4 @@
-> See my dotfiles repo instead
+> Turned private, see my dotfiles repo instead
 
 My Nix on MacOS rabbit hole. _Are you certain whatever you're doing is worth it?_
 
