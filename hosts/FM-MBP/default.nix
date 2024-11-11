@@ -3,33 +3,29 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   environment.shellAliases = {
-    nixswitch = "SSL_CERT_FILE=/opt/nix-and-zscaler.crt darwin-rebuild switch --flake ~/SCM/Personal/nix-config";
+    nixswitch = "SSL_CERT_FILE=/opt/nix-and-zscaler.crt darwin-rebuild switch --flake ~/nix-config";
   };
 
   environment.systemPackages = with pkgs; [
       colima
-      cowsay
       docker
-      fortune
-      kind
       lima
       neofetch
-      neovim
-      pinentry_mac
-      skhd
-      yabai
     ];
 
   homebrew = {
     casks = [
-      "background-music"
+      "actual"
       "discord"
       "moonlight"
       "netnewswire"
       "obs"
+      "obsidian"
       "prusaslicer"
       "steam"
       "tailscale"
+      "utm"
+      "synology-drive"
     ];
   };
 

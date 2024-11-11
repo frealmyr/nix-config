@@ -11,19 +11,14 @@
     export SSL_CERT_FILE=/opt/nix-and-zscaler.crt
   '';
   environment.shellAliases = {
-    nixswitch = "SSL_CERT_FILE=/opt/nix-and-zscaler.crt darwin-rebuild switch --flake ~/SCM/Personal/nix-config";
+    nixswitch = "SSL_CERT_FILE=/opt/nix-and-zscaler.crt darwin-rebuild switch --flake ~/nix-config";
   };
 
   environment.systemPackages = with pkgs; [
     colima
-    cowsay
     docker
-    fortune
-    kind
     lima
-    neofetch
-    neovim
-    pinentry_mac
+    kubectl
   ];
 
   homebrew = {
@@ -33,6 +28,7 @@
       "obsidian"
       "ollama" # Ollama menubar indicator
       "slack"
+      "utm"
     ];
   };
 
