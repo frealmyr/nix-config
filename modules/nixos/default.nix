@@ -1,6 +1,6 @@
 { self, pkgs, ... }: {
 
-  import = [
+  imports = [
     ./settings/autoupgrade.nix
     ./settings/boot.nix
     ./settings/gc.nix

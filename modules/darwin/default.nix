@@ -10,6 +10,7 @@
   security.pam.enableSudoTouchIdAuth = true;
 
   imports = [
+    ./settings/environment.nix
     ./settings/homebrew.nix
     ./settings/ollama.nix
     ./settings/pkgs.nix
