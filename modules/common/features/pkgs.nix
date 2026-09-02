@@ -1,0 +1,31 @@
+{ pkgs, ... }: {
+  environment.systemPackages = with pkgs; [
+    bat
+    btop
+    cachix
+    coreutils
+    curl
+    ed
+    fd
+    findutils
+    fzf
+    gawk
+    git
+    gnugrep
+    gnumake
+    gnupg
+    gnused
+    gnutar
+    htop
+    jq
+    less
+    parallel
+    tmux
+    tree
+    vim
+    watch
+    wget
+    xz
+    yq
+  ];
+}
