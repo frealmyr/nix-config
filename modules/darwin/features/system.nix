@@ -1,4 +1,4 @@
-{ ... }: {
+{ lib, ... }: {
   system = {
     activationScripts.reloadde.text = ''/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u''; # Activate most of the settings without restarting.
 
@@ -6,7 +6,7 @@
 
     keyboard = {
       enableKeyMapping = true;
-      # remapCapsLockToControl = true; # Non-VIM users things 
+      # remapCapsLockToControl = true; # Non-VIM users things
       remapCapsLockToEscape = true; # VIM users things
     };
 
@@ -20,8 +20,8 @@
         mineffect = null;
         mru-spaces = false;
         orientation = "bottom";
-        persistent-apps = null;
-        persistent-others = null;
+        persistent-apps = [];
+        persistent-others = [];
         show-process-indicators = false; # No need, as static-only is set.
         show-recents = false;
         static-only = true; # Only display apps that are currently running.
@@ -60,7 +60,7 @@
         "com.apple.springing.delay" = 0.0;
         "com.apple.trackpad.forceClick" = false;
         "com.apple.trackpad.scaling" = 1.50;
-        AppleFontSmoothing = 1;
+        AppleFontSmoothing = 0; # disable subpixel-rendering, more accurate and less bold fonts. Better for "non-retina" displays, as it does not blur pixels.
         AppleKeyboardUIMode = 3; # Enables keyboard control on macos prompts/windows.
         ApplePressAndHoldEnabled = false;
         AppleScrollerPagingBehavior = true; # Enable click to jump on scrollbars.
@@ -121,6 +121,7 @@
 
       CustomUserPreferences = {
         "com.apple.AdLib".allowApplePersonalizedAdvertising = false;
+        "com.apple.AdLib".allowIdentifierForAdvertising = false;
         "com.apple.commerce".AutoUpdate = true; # Turn on app auto-update
         "com.apple.dashboard".mcx-disabled = true; # Disable MacOS dashboard in dock settings.
         "com.apple.ImageCapture".disableHotPlug = true; # Prevent photos app start when plugging in devices.
@@ -137,7 +138,8 @@
           AppleReduceDesktopTinting = true; # Disable wallpaper tinting.
           AppleAccentColor = 5; # Purple color for accents in UI.
           AppleHighlightColor = "0.968627 0.831373 1.000000 Purple"; # Purple color for hightlights in UI.
-          NSStatusItemSpacing = 6; # Menu bar padding between items.
+          NSStatusItemSelectionPadding = 4; # Padding around menu bar icons
+          NSStatusItemSpacing = 2; # Menu bar padding between items.
         };
 
         "com.apple.finder" = {
@@ -146,7 +148,7 @@
           NewWindowTargetPath = "file://$''{HOME}/";
           DisableAllAnimations = true;
           ShowPathbar = true;
-          howStatusBar = true;
+          ShowStatusBar = true;
           _FXShowPosixPathInTitle = true;
           _FXSortFoldersFirst = true;
           FXDefaultSearchScope = "SCcf"; # Search current folder by default.
@@ -169,6 +171,10 @@
           ScheduleFrequency = 1; # Check for software updates daily, not just once per week
           AutomaticDownload = 1; # Download newly available updates in background
           CriticalUpdateInstall = 1; # Install System data files & security updates
+        };
+
+        "com.apple.HIToolbox" = {
+          AppleFnUsageType = 0; # Globe key does nothing by default
         };
       };
     };

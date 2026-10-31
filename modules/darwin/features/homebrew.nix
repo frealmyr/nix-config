@@ -1,7 +1,6 @@
 { ... }: {
   homebrew = {
     enable = true;
-    brewPrefix = "/opt/homebrew/bin";
     global.brewfile = true;
 
     onActivation = {
@@ -9,10 +8,6 @@
       upgrade = true;
       cleanup = "zap";
     };
-
-    taps = [
-      "homebrew/services"
-    ];
 
     brews = [
       {
@@ -24,8 +19,7 @@
     casks = [
       "betterdisplay"
       "firefox"
-      "vscodium"
-      "wezterm"
+      "ghostty"
     ];
   };
 }

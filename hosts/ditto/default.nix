@@ -16,7 +16,6 @@
 
   # Nix settings
   system.primaryUser = "Fredrick";
-  # nix.settings.trusted-users = [ "fredrick" ]; # Danger! https://github.com/NixOS/nix/issues/6672#issuecomment-2335184129
   nixpkgs.hostPlatform = "aarch64-darwin"; # Set the architecture to aarch64-darwin
-  system.stateVersion = 4; # Read changelog before changing, darwin-rebuild changelog
+  system.stateVersion = 7; # Read changelog before changing, darwin-rebuild changelog
 }

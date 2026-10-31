@@ -2,7 +2,7 @@
   environment.systemPackages = with pkgs; [
     bat
     btop
-    cachix
+    cloc
     coreutils
     curl
     ed

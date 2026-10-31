@@ -1,30 +1,40 @@
 { ... }: {
 homebrew = {
+    taps = [
+      "frealmyr/homebrew-tap"
+    ];
+
     casks = [
-      "actual"
       "affinity-designer"
       "affinity-photo"
       "affinity-publisher"
-      "bitwarden"
+      "audacity"
+      "balenaetcher"
+      "breaktimer"
+      "calibre"
+      "darktable"
       "digikam"
-      "discord"
-      "moonlight"
+      "halloy"
+      "jellyfin-media-player"
+      "keepassxc"
+      "lulu"
+      "musicbrainz-picard"
       "netnewswire"
-      "netspot"
-      "obs"
       "obsidian"
-      "prusaslicer"
       "stats"
-      "starsector"
       "steam"
-      "synology-drive"
       "sweet-home3d"
-      "tailscale"
+      "synology-drive"
+      "tailscale-app"
       "topaz-denoise-ai"
+      "transmission"
       "utm"
+      "vscodium"
+      "xld"
     ];
-    # masApps = {
-    #  "AutoMounter" = 1160435653;
-    # };
+
+    masApps = {
+      "AutoMounter" = 1160435653;
+    };
   };
 }
